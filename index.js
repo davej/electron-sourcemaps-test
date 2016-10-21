@@ -1,12 +1,5 @@
 'use strict';
-const app = require('app');
-const BrowserWindow = require('browser-window');
-
-// report crashes to the Electron project
-require('crash-reporter').start();
-
-// adds debug features like hotkeys for triggering dev tools and reload
-require('electron-debug')();
+const { app, BrowserWindow } = require('electron');
 
 // prevent window being garbage collected
 let mainWindow;
@@ -24,7 +17,7 @@ function createMainWindow() {
 	});
 	win.openDevTools({detach: true});
 
-	win.loadUrl(`file://${__dirname}/index.html`);
+	win.loadURL(`file://${__dirname}/index.html`);
 	win.on('closed', onClosed);
 
 	return win;
